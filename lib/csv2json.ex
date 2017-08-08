@@ -2,7 +2,7 @@ defmodule Csv2Json do
   @moduledoc false
 
   def main(args \\ []) do
-    case OptionParser.parse!(args, strict: [output: :string]) do
+    case OptionParser.parse!(args, strict: [output: :string], aliases: [o: :output]) do
       {[output: output_path], [input_path]} ->
         output_file = File.open! output_path, [:write]
         try do
@@ -20,7 +20,7 @@ defmodule Csv2Json do
         IO.write """
         csv2json - Converts CSV file to JSON (one JSON object per line)
 
-        Usage: csv2json INPUT_FILE --output OUTPUT_FILE
+        Usage: csv2json INPUT_FILE -o OUTPUT_FILE
         """
     end
   end
