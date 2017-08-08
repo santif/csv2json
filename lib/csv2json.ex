@@ -9,12 +9,8 @@ defmodule Csv2Json do
           input_path
           |> File.stream!()
           |> CSV.decode!(headers: true)
-          |> Stream.map(fn(line_obj) ->
-               line = encode_line(line_obj)
-               unless line == "" do
-                 IO.puts(output_file, line)
-               end
-             end)
+          |> Stream.map(&encode_line/1)
+          |> Stream.each(&IO.puts(output_file, &1))
           |> Stream.run()
         after
           File.close(output_file)
@@ -30,7 +26,7 @@ defmodule Csv2Json do
   end
 
   @doc """
-  Converts fields from a CSV line to
+  Converts fields from a CSV line to JSON
   """
   def encode_line(obj) do
     obj
