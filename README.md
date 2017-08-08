@@ -12,7 +12,7 @@ Erlang ERTS - Tested using Erlang 19.3
 ## Usage
 
 ```
-./bin/csv2json INPUT_FILE -o OUTPUT_FILE
+./bin/csv2json INPUT_FILE [-o OUTPUT_FILE]
 ```
 
 ## License
