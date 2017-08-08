@@ -9,9 +9,12 @@ defmodule Csv2Json do
           input_path
           |> File.stream!()
           |> CSV.decode!(headers: true)
-          |> Stream.map(fn(obj) ->
-              IO.puts(output_file, Poison.encode!(obj))
-            end)
+          |> Stream.map(fn(line_obj) ->
+               line = encode_line(line_obj)
+               unless line == "" do
+                 IO.puts(output_file, line)
+               end
+             end)
           |> Stream.run()
         after
           File.close(output_file)
@@ -24,5 +27,15 @@ defmodule Csv2Json do
         Usage: csv2json INPUT_FILE --output OUTPUT_FILE
         """
     end
+  end
+
+  @doc """
+  Converts fields from a CSV line to
+  """
+  def encode_line(obj) do
+    obj
+    |> Enum.filter(fn {_key, value} -> value != "" end)
+    |> Enum.into(%{})
+    |> Poison.encode!()
   end
 end

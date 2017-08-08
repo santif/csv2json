@@ -1,5 +1,5 @@
 name,time,remote_addr,user_agent
-requests,1488921440833273489,127.0.0.1,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"
-requests,1488921441686269512,10.0.0.2,
-requests,1488921441686269515,192.168.0.1,"user agent ""string"""
-requests,1488921441686269590,,
+requests,2017-04-07T12:34:56.123Z,127.0.0.1,"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"
+requests,2017-04-07T12:34:56.234Z,10.0.0.2,
+requests,2017-04-07T12:34:56.345Z,192.168.0.1,"user agent ""string"""
+requests,2017-04-07T12:34:56.456Z,,
