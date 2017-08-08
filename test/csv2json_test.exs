@@ -1,17 +1,19 @@
 defmodule Csv2JsonTest do
   use ExUnit.Case, async: false
 
+  @output_file "./test/data/output.json.txt"
+
   setup do
-    File.rm "./test/data/output.json"
+    File.rm @output_file
     :ok
   end
 
   test "Convert CSV to JSON" do
-    refute File.exists?("./test/data/output.json")
-    Csv2Json.main(["./test/data/input1.csv", "--output", "./test/data/output.json"])
-    assert File.exists?("./test/data/output.json")
+    refute File.exists? @output_file
+    Csv2Json.main(["./test/data/input1.csv", "--output", @output_file])
+    assert File.exists? @output_file
 
-    json_txt = File.read!("./test/data/output.json")
+    json_txt = File.read! @output_file
     assert json_txt == """
       {"user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246","time":"2017-04-07T12:34:56.123Z","remote_addr":"127.0.0.1","name":"requests"}
       {"time":"2017-04-07T12:34:56.234Z","remote_addr":"10.0.0.2","name":"requests"}
