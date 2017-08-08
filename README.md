@@ -7,7 +7,7 @@ Escript to convert a CSV file to a line-separated file, with one JSON object per
 
 ## Requirements
 
-Erlang ERTS - Tested usings Erlang 19.3
+Erlang ERTS - Tested using Erlang 19.3
 
 ## Usage
 
