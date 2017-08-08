@@ -4,7 +4,7 @@ elixir:
 otp_release:
   - 19.3
 script:
-  - "MIX_ENV=test mix do deps.get, compile"
+  - "MIX_ENV=test mix do deps.get, compile, test"
 notifications:
   recipients:
     - santif@gmail.com
