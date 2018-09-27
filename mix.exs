@@ -20,7 +20,7 @@ defmodule Csv2Json.Mixfile do
   end
 
   defp deps do
-    [{:poison, "~> 3.1"},
-     {:csv, "~> 2.0"}]
+    [{:poison, "~> 4.0"},
+     {:csv, "~> 2.1"}]
   end
 end
